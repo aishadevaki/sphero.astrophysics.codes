@@ -1,0 +1,18 @@
+async function startProgram() {
+  await setMainLed({ r: 255, g: 255, b: 0 }); 
+  await speak("Monitoring sun", true);
+  await delay(2000);
+
+  // Flare event
+  for (let i = 0; i < 3; i++) {
+    await setMainLed({ r: 255, g: 69, b: 0 });
+    await delay(300);
+    await setMainLed({ r: 255, g: 255, b: 0 });
+    await delay(300);
+  }
+
+  await speak("Solar flare detected", true);
+  await roll(50, 0, 1);
+  await delay(1000);
+  await stopRoll();
+}
