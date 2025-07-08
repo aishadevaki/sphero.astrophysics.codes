@@ -1,0 +1,14 @@
+async function startProgram() {
+  const speeds = [30, 50, 70, 50, 30]; // Faster near "the sun"
+  const angles = [0, 45, 90, 135, 180];
+
+  await speak("Simulating comet orbit", true);
+
+  for (let i = 0; i < angles.length; i++) {
+    await roll(speeds[i], angles[i], 1.5);
+    await delay(1500);
+  }
+
+  await speak("Orbit complete", true);
+  await setMainLed({ r: 255, g: 255, b: 255 }); // an icy tail glow
+}
