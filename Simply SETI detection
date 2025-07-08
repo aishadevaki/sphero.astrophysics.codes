@@ -1,0 +1,11 @@
+async function startProgram() {
+  await setMainLed({ r: 0, g: 255, b: 0 });
+  await speak("Listening for signal", true);
+  await delay(3000); // Waiting
+
+  await setMainLed({ r: 255, g: 255, b: 255 });
+  await speak("Signal received", true);
+  await roll(60, 180, 1.5);
+  await delay(1500);
+  await stopRoll();
+}
