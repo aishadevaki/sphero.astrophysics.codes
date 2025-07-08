@@ -1,0 +1,20 @@
+async function startProgram() {
+  const colors = [
+    { r: 0, g: 255, b: 0 },   // Spring
+    { r: 255, g: 0, b: 0 },   // Summer
+    { r: 255, g: 165, b: 0 }, // Autumn
+    { r: 0, g: 0, b: 255 }    // Winter
+  ];
+
+  const names = ["Spring", "Summer", "Autumn", "Winter"];
+
+  for (let i = 0; i < 4; i++) {
+    await setMainLed(colors[i]);
+    await speak(names[i], true);
+    await roll(20, i * 90, 1.5);
+    await delay(1500);
+    await stopRoll();
+  }
+
+  await setMainLed({ r: 0, g: 0, b: 0 });
+}
