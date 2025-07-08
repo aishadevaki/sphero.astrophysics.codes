@@ -1,0 +1,20 @@
+async function startProgram() {
+  await speak("Approaching black hole", true);
+
+  for (let i = 0; i < 3; i++) {
+    await roll(20 + i * 20, 270, 1);
+    await delay(1000);
+  }
+
+  // Event horizon
+  for (let i = 0; i < 4; i++) {
+    await setMainLed({ r: 0, g: 0, b: 0 });
+    await delay(200);
+    await setMainLed({ r: 255, g: 255, b: 255 });
+    await delay(200);
+  }
+
+  await speak("No escape", true);
+  await stopRoll();
+  await setMainLed({ r: 0, g: 0, b: 0 });
+}
